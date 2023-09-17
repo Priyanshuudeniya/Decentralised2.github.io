@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Vote Counter</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 50%;
+            margin: 20px auto;
+        }
+
+        th, td {
+            border: 1px solid #dddddd;
+            text-align: center;
+            padding: 8px;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <tr>
+            <th>Button</th>
+            <th>Votes</th>
+        </tr>
+        <tr>
+            <td><button onclick="increment(0)">Vote</button></td>
+            <td id="counter0">0</td>
+        </tr>
+        <tr>
+            <td><button onclick="increment(1)">Vote</button></td>
+            <td id="counter1">0</td>
+        </tr>
+       
+    </table>
+
+    <script>
+        function increment(index) {
+           
+            const counter = document.getElementById(`counter${index}`);
+
+            
+            const button = document.querySelectorAll('button')[index + 1]; 
+           
+            if (!button.getAttribute('data-clicked')) {
+                
+                let currentValue = parseInt(counter.textContent);
+                currentValue++;
+                counter.textContent = currentValue;
+
+                
+                button.setAttribute('data-clicked', 'true');
+            }
+        }
+    </script>
+</body>
+</html>
